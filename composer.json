@@ -1,0 +1,23 @@
+{
+    "name": "ishan-deepsource/psalm-analyzer",
+    "description": "Run Psalm static analyser macro for DeepSource",
+    "authors": [
+        {
+            "name": "Ishan Vyas",
+            "email": "ishan@deepsource.io"
+        }
+    ],
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "IshanDeepsource\\PsalmAnalyzer\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.0.0",
+        "symfony/finder": "^5.0",
+        "symfony/process": "^5.0"
+    },
+    "bin": ["bin/analyze"]
+}

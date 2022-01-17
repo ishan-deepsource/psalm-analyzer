@@ -1,0 +1,6 @@
+name = "Psalm Analyzer"
+description = "Run Psalm static analyser macro for DeepSource"
+analysis_command = "/app/bin/analyze"
+visibility = "public"
+category = "language"
+supported_files_regex = ".php$"

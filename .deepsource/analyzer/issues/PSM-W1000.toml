@@ -1,0 +1,33 @@
+title = "Trying to call a method on a possibly null value"
+category = "bug-risk"
+severity = "major"
+weight = 60
+recommended = true
+description = """
+The issue is raised when trying to call a method on a possibly null value.
+
+## Examples
+
+### Bad practice
+```php
+class User
+{
+    public function setFullname(?Name $name): void
+    {
+        // invalid: here $name can be null, in which case calling getFirstname and getLastname methods will raise an error
+        $this->name = sprintf('%s %s', $name->getFirstname(), $name->getLastname());
+    }
+}
+```
+
+### Recommended
+```php
+class User
+{
+    public function setFullname(Name $name): void
+    {
+        $this->name = sprintf('%s %s', $name->getFirstname(), $name->getLastname());
+    }
+}
+```
+"""
