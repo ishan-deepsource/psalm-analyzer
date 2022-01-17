@@ -1,7 +1,7 @@
 build:
 	# install required packages
 	apk add --no-cache ca-certificates curl tar xz openssl wget
-	# install PHP
+	# install PHP and required extensions
 	apk add --no-cache php8
 	apk add php8-curl php8-xml php8-dom php8-mbstring php8-tokenizer
 	# get psalm.phar file
@@ -14,6 +14,5 @@ build:
 	WORKDIR /app
 	chmod +x composer-setup.sh
 	./composer-setup.sh
-	php composer.phar -v
-	# todo: add production flags
-	php composer.phar install
+	php composer.phar install --no-interaction --no-dev --no-progress --optimize-autoloader
+	chmod +x bin/analyze
