@@ -1,6 +1,17 @@
+version = "1"
+
 name = "Psalm Analyzer"
 description = "Run Psalm static analyser macro for DeepSource"
-analysis_command = "php8 /app/bin/analyze"
 visibility = "public"
 category = "language"
-supported_files_regex = ".php$"
+
+[analyzer]
+  command = "php8 /app/bin/analyze"
+
+[build]
+  image = "alpine:3.14"
+  steps = """
+    apk update && apk add --no-cache make && rm -rf /var/cache/apk/*
+    cp -r . /app
+    cd /app/.deepsource/analyzer && make build
+  """
