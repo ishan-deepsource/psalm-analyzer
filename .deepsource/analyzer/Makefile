@@ -1,5 +1,6 @@
 build:
 	cp -r ../../. /app
+	mkdir /toolbox
 	# install required packages
 	apk add --no-cache ca-certificates curl tar xz openssl wget
 	# install PHP and required extensions
