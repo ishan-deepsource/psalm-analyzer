@@ -1,11 +1,14 @@
 FROM alpine:3.14
 
-RUN apk update && apk add --no-cache make && rm -rf /var/cache/apk/*
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.14/main" >/etc/apk/repositories
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.14/community" >>/etc/apk/repositories
+RUN apk update
+RUN apk add bash curl git grep make
 
-RUN mkdir -p /app /toolbox /macro
+RUN mkdir /app /code /macrocode /marvin /artifacts /macroartifacts /config /secret /toolbox
 
-COPY . /macro
+COPY . /macrocode
 
-WORKDIR /macro
+WORKDIR /macrocode
 
-RUN cd /macro/.deepsource/analyzer && make build
+RUN cd .deepsource/analyzer && make build
