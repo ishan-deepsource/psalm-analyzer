@@ -1,2 +1,3 @@
 # Psalm Analyzer
-Psalm analyzer macro for DeepSource.
+
+Psalm analyzer macro to raise issues on [DeepSource](https://deepsource.io/).
