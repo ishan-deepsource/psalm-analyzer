@@ -9,4 +9,4 @@ build:
 	# get psalm.phar file
 	cd /toolbox && wget https://github.com/vimeo/psalm/releases/download/4.18.1/psalm.phar && chmod +x psalm.phar
 	# setup macro
-	cd /app && curl -s https://getcomposer.org/installer | php8 -- && php8 composer.phar install --no-interaction --no-dev --no-progress --optimize-autoloader && chmod +x bin/analyze
+	cd /app && curl -s https://getcomposer.org/installer | php -- && php composer.phar install --no-interaction --no-dev --no-progress --optimize-autoloader && chmod +x bin/analyze
