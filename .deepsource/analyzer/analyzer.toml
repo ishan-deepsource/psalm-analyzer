@@ -11,7 +11,7 @@ category = "language"
 [build]
   image = "alpine:3.14"
   steps = """
-    apk update && apk add --no-cache make && rm -rf /var/cache/apk/*
+    apk update && apk add --no-cache make
     cp -r . /app
     cd /app/.deepsource/analyzer && make build
   """
